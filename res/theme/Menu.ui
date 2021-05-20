@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="Menu" cloudDestinationProperty="Menu" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Container" name="BtnNavigation" cloudDestinationProperty="BtnNavigation" uiid="Container" enabled="true" scrollVisible="true" tensileDragEnabled="true" snapToGrid="false" scrollableX="true" scrollableY="false" layout="FlowLayout" flowLayoutFillRows="true" flowLayoutAlign="1" flowLayoutValign="0" >
+    <component type="Button" name="News" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="s" toggle="true" >
+    </component>
+    <component type="Button" name="MesArticle" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="s" toggle="true" >
+    </component>
+    <component type="Button" name="Recom" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="s" toggle="true" >
+    </component>
+    <component type="Button" name="ArticleP" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="s" toggle="true" >
+    </component>
+  </component>
+</component>

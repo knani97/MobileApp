@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="AjoutArticle" cloudDestinationProperty="AjoutArticle" uiid="formBg" scrollableY="false" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Container" name="BtnNavigation" cloudDestinationProperty="BtnNavigation" uiid="ContainerWhite" enabled="true" scrollVisible="false" tensileDragEnabled="true" snapToGrid="false" scrollableX="true" scrollableY="false" layout="BoxLayout" boxLayoutAxis="X" >
+    <component type="Button" name="News" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="News" toggle="true" >
+    </component>
+    <component type="Button" name="MesArticle" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="Mes Article" toggle="true" >
+    </component>
+    <component type="Button" name="Recom" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="Recommandation" toggle="true" >
+    </component>
+    <component type="Button" name="ArticleP" cloudDestinationProperty="Button" uiid="ButtonNonSelect" focusable="false" enabled="true" scrollVisible="true" text="Article Pr&#xe9;f&#xe9;r&#xe9;" toggle="true" >
+    </component>
+  </component>
+  <component type="Container" name="AjoutForm" cloudDestinationProperty="Container" uiid="BgBoxArticle" scrollableY="true" layout="BoxLayout" boxLayoutAxis="Y" >
+    <component type="TextField" name="Titre" cloudBoundProperty="text" cloudDestinationProperty="TextField1" text="" hint="Ajouter Titre" >
+    </component>
+    <component type="TextArea" name="Text" cloudBoundProperty="text" cloudDestinationProperty="TextArea" text="" hint="Ajouter Text" rows="5" >
+    </component>
+    <component type="ComboBox" name="Categorie" cloudDestinationProperty="ComboBox" >
+    </component>
+    <component type="Container" name="Container" cloudDestinationProperty="Container" scrollVisible="false" layout="FlowLayout" flowLayoutFillRows="false" flowLayoutAlign="1" flowLayoutValign="0" >
+      <component type="Button" name="BtnImage" cloudDestinationProperty="Image" uiid="BtnPostAction" text="" icon="article_white_24dp.png" >
+      </component>
+      <component type="Label" name="image" cloudDestinationProperty="Label1" text="" >
+      </component>
+    </component>
+    <component type="Button" name="AjoutArticleBtn" cloudDestinationProperty="Button" focusable="false" enabled="true" text="Button" >
+    </component>
+  </component>
+</component>
