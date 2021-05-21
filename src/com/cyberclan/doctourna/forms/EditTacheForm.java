@@ -20,6 +20,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
+import com.cyberclan.doctourna.Manipulator;
 import com.cyberclan.doctourna.models.Tache;
 import com.cyberclan.doctourna.services.CalendrierService;
 import com.cyberclan.doctourna.services.TacheService;
@@ -68,13 +69,15 @@ public class EditTacheForm {
         Label lblDate = new Label("Date:");
         Picker pckDate = new Picker();
         pckDate.setType(Display.PICKER_TYPE_DATE_AND_TIME);
-        pckDate.setDate(currentDate);
+        pckDate.setDate(tacheOrig.getDate());
         date.add(lblDate).add(pckDate);
         Container duree = new Container(BoxLayout.x());
         Label lblDuree = new Label("Duree:");
         Picker pckDuree = new Picker();
         pckDuree.setType(Display.PICKER_TYPE_TIME);
+        pckDuree.setTime(1, 0);
         duree.add(lblDuree).add(pckDuree);
+        Container btns = new Container(BoxLayout.x());
         Button btnAjout = new Button("Ajouter");
         btnAjout.addActionListener(new ActionListener() {
             @Override
@@ -95,13 +98,21 @@ public class EditTacheForm {
                 mainForm.showBack();
             }
         });
+        Button btnRetour = new Button("Retour");
+        btnRetour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                mainForm.showBack();
+            }
+        });
+        btns.add(btnAjout).add(btnRetour);
         initPicker();
 
         current.add(libelle).
                 add(description).
                 add(date).
                 add(duree).
-                add(btnAjout);
+                add(btns);
     }
 
     public void initPicker() {
@@ -116,7 +127,7 @@ public class EditTacheForm {
             URLImage.createToStorage(placeholder, "dispo", "https://image.pitchbook.com/WIN4E8aKYw2zaFjYH7Ui0azp49K1602090850490_200x200")
         };
 
-        MultiButton b = new MultiButton("Selectionner un type");
+        MultiButton b = new MultiButton(Manipulator.getEtatString(Integer.valueOf(tacheOrig.getType())));
         b.addActionListener(e -> {
             Dialog d = new Dialog();
             d.setLayout(BoxLayout.y());
@@ -145,6 +156,7 @@ public class EditTacheForm {
             d.showPopupDialog(b);
         });
         
+        type = Manipulator.getEtat(tacheOrig.getType());
         current.add(b);
     }
 }

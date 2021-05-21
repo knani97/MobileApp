@@ -99,4 +99,18 @@ public class Manipulator {
     public static String symfonyTime(Date date) {
         return new SimpleDateFormat("hh:mm:ss").format(date);
     }
+    
+    public static Date getDateFromTime(int minutes) {
+        Date date = new Date();
+        date.setTime((minutes - 60) * 60 * 1000);
+        return date;
+    }
+    
+    public static int getMonthFromDate(Date date) {
+        return Integer.parseInt(new SimpleDateFormat("MM").format(date));
+    }
+    
+    public static int getDayFromDate(Date date) {
+        return Integer.parseInt(new SimpleDateFormat("dd").format(date));
+    }
 }

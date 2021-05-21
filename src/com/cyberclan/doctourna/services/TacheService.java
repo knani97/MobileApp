@@ -49,6 +49,8 @@ public class TacheService {
                 "&date=" + Manipulator.symfonyDateTime(tache.getDate()) +
                 "&duree=" + Manipulator.symfonyTime(tache.getDuree()) +
                 "&couleur=" + tache.getCouleur();
+        System.out.println(Manipulator.symfonyDateTime(tache.getDate()));
+        System.out.println(Manipulator.symfonyTime(tache.getDuree()));
 
         request.setUrl(url);
         request.setPost(false);
@@ -162,6 +164,19 @@ public class TacheService {
         for (Tache t : getAllTaches()) {
             if (t.getCalendrier().getId() == cal) {
                 t.update();
+                list.add(t);
+            }
+        }
+
+        return list;
+    }
+    
+    public ArrayList<Tache> getDisposByCal(int cal) {
+        ArrayList<Tache> list = new ArrayList<Tache>();
+
+        for (Tache t : getTachesByCal(cal)) {
+            t.update();
+            if (t.getType().contains("4")) {
                 list.add(t);
             }
         }

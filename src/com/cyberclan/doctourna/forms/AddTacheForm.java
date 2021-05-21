@@ -21,6 +21,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
+import com.cyberclan.doctourna.Manipulator;
 import com.cyberclan.doctourna.models.Tache;
 import com.cyberclan.doctourna.services.CalendrierService;
 import com.cyberclan.doctourna.services.TacheService;
@@ -32,15 +33,15 @@ import java.util.Date;
  * @author mouhe
  */
 public class AddTacheForm {
-    
+
     public Form mainForm = new Form();
     public Form current = new Form();
     public Date currentDate;
     public com.cyberclan.doctourna.ui.Calendar tachesList;
-    
+
     private CalendrierService cs = new CalendrierService();
     private TacheService ts = new TacheService();
-    
+
     private int type;
 
     public void show() {
@@ -69,32 +70,44 @@ public class AddTacheForm {
         Picker pckDuree = new Picker();
         pckDuree.setType(Display.PICKER_TYPE_TIME);
         duree.add(lblDuree).add(pckDuree);
+        Container btns = new Container(BoxLayout.x());
         Button btnAjout = new Button("Ajouter");
         btnAjout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Tache tache = new Tache();
-                tache.setCalendrier(cs.getCalendrierByUid(Session.getId()));
-                tache.setLibelle(txtLibelle.getText());
-                tache.setDescription(txtDescription.getText());
-                tache.setDate(pckDate.getDate());
-                tache.setDuree(new Date());
-                //tache.setDuree(pckDuree.getDate());
-                tache.setType(String.valueOf(type));
-                tache.setCouleur("black");
-                ts.addTache(tache);
-                tachesList.reinitTaches();
-                tachesList.refresh(currentDate);
+                if (txtLibelle.getText().isEmpty()) {
+                    Dialog.show("Erreur", "Libellé vide!", "Annuler", "OK");
+                } else {
+                    Tache tache = new Tache();
+                    tache.setCalendrier(cs.getCalendrierByUid(Session.getId()));
+                    tache.setLibelle(txtLibelle.getText());
+                    tache.setDescription(txtDescription.getText());
+                    tache.setDate(pckDate.getDate());
+                    tache.setDuree(Manipulator.getDateFromTime(pckDuree.getTime()));
+                    tache.setType(String.valueOf(type));
+                    tache.setCouleur("black");
+                    ts.addTache(tache);
+                    tachesList.reinitTaches();
+                    tachesList.refresh(currentDate);
+                    mainForm.showBack();
+                }
+            }
+        });
+        Button btnRetour = new Button("Retour");
+        btnRetour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
                 mainForm.showBack();
             }
         });
+        btns.add(btnAjout).add(btnRetour);
         initPicker();
 
         current.add(libelle).
                 add(description).
                 add(date).
                 add(duree).
-                add(btnAjout);
+                add(btns);
     }
 
     public void initPicker() {
@@ -125,19 +138,20 @@ public class AddTacheForm {
                     b.setIcon(mb.getIcon());
                     d.dispose();
                     b.revalidate();
-                    if (b.getTextLine1().contains("RDV Perso"))
+                    if (b.getTextLine1().contains("RDV Perso")) {
                         type = 5;
-                    else if (b.getTextLine1().contains("Prise Médicament"))
+                    } else if (b.getTextLine1().contains("Prise Médicament")) {
                         type = 2;
-                    else if (b.getTextLine1().contains("Personnelle"))
+                    } else if (b.getTextLine1().contains("Personnelle")) {
                         type = 3;
-                    else if (b.getTextLine1().contains("Disponibilité"))
+                    } else if (b.getTextLine1().contains("Disponibilité")) {
                         type = 4;
+                    }
                 });
             }
             d.showPopupDialog(b);
         });
-        
+
         current.add(b);
     }
 }

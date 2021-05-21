@@ -134,6 +134,6 @@ public class Calendrier {
     }
     
     public void update() {
-        this.uidId = new UserService().getUser(this.uidId.getId());
+        //this.uidId = new UserService().getUser(this.uidId.getId());
     }
 }

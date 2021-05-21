@@ -19,10 +19,20 @@ import com.codename1.l10n.L10NManager;
 import com.codename1.system.NativeLookup;
 import com.codename1.ui.Button;
 import com.codename1.ui.Calendar;
+import com.codename1.ui.Container;
+import com.codename1.ui.Image;
 import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.GridLayout;
+import com.cyberclan.doctourna.forms.AddCalendrierForm;
 import com.cyberclan.doctourna.forms.AddTacheForm;
+import com.cyberclan.doctourna.forms.AjoutDispoForm;
+import com.cyberclan.doctourna.forms.EditCalendrierForm;
+import com.cyberclan.doctourna.forms.PriseRDVForm;
 import com.cyberclan.doctourna.services.TacheService;
+import com.cyberclan.doctourna.ui.HomePage;
 import com.cyberclan.doctourna.utils.Session;
+import com.mycompany.gui.SignInForm;
+import com.mycompany.gui.SignUpForm;
 import java.util.Collection;
 import java.util.Date;
 
@@ -63,10 +73,9 @@ public class Home {
             current.show();
             return;
         }
-        Session.setId(1);
-        //Console.start();
-        Form hi = new Form("Calendar", new BorderLayout());
-        com.cyberclan.doctourna.ui.Calendar tachesList = new com.cyberclan.doctourna.ui.Calendar();
+        new SignUpForm(UIManager.initFirstTheme("/start")).show();
+        // CALENDRIER
+        /*com.cyberclan.doctourna.ui.Calendar tachesList = new com.cyberclan.doctourna.ui.Calendar();
         tachesList.setForm(hi);
         CustomCalendar cld = new CustomCalendar();
         //cld.addActionListener((e) -> Log.p("You picked: " + new Date(cld.getSelectedDay())));
@@ -81,8 +90,8 @@ public class Home {
             form.tachesList = tachesList;
             form.currentDate = new Date(cld.getSelectedDay());
             form.show();
-        });
-        /*DeviceCalendar dc = DeviceCalendar.getInstance();
+        });*/
+ /*DeviceCalendar dc = DeviceCalendar.getInstance();
         if (dc == null) {
             hi.add("Device Calendar is null");
             hi.show();
@@ -120,7 +129,7 @@ public class Home {
             });
             hi.add(b);
         }*/
-        hi.show();
+        //hi.show();
     }
 
     public void stop() {

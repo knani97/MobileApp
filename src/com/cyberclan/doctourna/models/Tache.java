@@ -188,6 +188,6 @@ public class Tache {
     }
     
     public void update() {
-        this.calendrier = new CalendrierService().getCalendrier(this.calendrier.getId());
+        //this.calendrier = new CalendrierService().getCalendrier(this.calendrier.getId());
     }
 }

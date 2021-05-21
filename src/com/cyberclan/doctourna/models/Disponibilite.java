@@ -20,10 +20,18 @@ public class Disponibilite {
     private Date dureePause;
 
     public Disponibilite() {
+        this.startDate = new Date();
+        this.endDate = new Date();
+        this.dureeRdv = new Date();
+        this.dureePause = new Date();
     }
 
     public Disponibilite(Integer id) {
         this.id = id;
+        this.startDate = new Date();
+        this.endDate = new Date();
+        this.dureeRdv = new Date();
+        this.dureePause = new Date();
     }
 
     public Disponibilite(Integer id, Date startDate, Date endDate, Date dureeRdv, Date dureePause) {
@@ -96,7 +104,6 @@ public class Disponibilite {
 
     @Override
     public String toString() {
-        return "doctourna.models.Disponibilite[ id=" + id + " ]";
+        return "Disponibilite{" + "id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", dureeRdv=" + dureeRdv + ", dureePause=" + dureePause + '}';
     }
-
 }

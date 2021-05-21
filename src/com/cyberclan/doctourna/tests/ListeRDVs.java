@@ -68,8 +68,7 @@ public class ListeRDVs {
         Console.start();
         Form hi = new Form("Liste des RDVs", new BorderLayout());
         com.cyberclan.doctourna.ui.ListeRDVs list = new com.cyberclan.doctourna.ui.ListeRDVs();
-        list.setForm(hi);
-        list.showForm();
+        list.parentForm = hi;
         hi.show();
     }
 

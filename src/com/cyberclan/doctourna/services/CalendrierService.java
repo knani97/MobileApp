@@ -40,7 +40,7 @@ public class CalendrierService {
 
     public boolean addCalendrier(Calendrier calendrier) {
         String url = Statics.BASE_URL + "/calendriers/add?" +
-                "uid=" + calendrier.getUidId().getId() +
+                "uid=" + Session.getId() +
                 "&type=" + calendrier.getType() +
                 "&email=" + (calendrier.getEmail() ? 1 : 0) +
                 "&couleur=" + calendrier.getCouleur() +
@@ -63,7 +63,7 @@ public class CalendrierService {
     public boolean editCalendrier(Calendrier calendrier) {
         String url = Statics.BASE_URL + "/calendriers/edit?" +
                 "id=" + calendrier.getId() +
-                "&uid=" + calendrier.getUidId().getId() +
+                "&uid=" + Session.getId() +
                 "&type=" + calendrier.getType() +
                 "&email=" + (calendrier.getEmail() ? 1 : 0) +
                 "&couleur=" + calendrier.getCouleur() +

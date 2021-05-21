@@ -66,6 +66,17 @@ public class UserService {
         return users;
     }
     
+    public ArrayList<User> getAllMedecins() {
+        ArrayList<User> medecins = new ArrayList<User>();
+        
+        for (User u : getAllUsers()) {
+            if (u.getType() == 2)
+                medecins.add(u);
+        }
+        
+        return medecins;
+    }
+    
     public User getUser(int id) {
         for (User u : getAllUsers()) {
             if (u.getId() == id)

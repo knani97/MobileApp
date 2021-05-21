@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="MesArticles" cloudDestinationProperty="MesArticles" uiid="formBg" focusable="false" enabled="true" rtl="false" scrollVisible="false" snapToGrid="false" flatten="false" scrollableY="true" layout="BoxLayout" boxLayoutAxis="Y" cyclicFocus="true" >
+  <component type="Container" name="BoxArticleContainer" cloudDestinationProperty="Container" uiid="BtnPostAction" focusable="false" enabled="true" scrollVisible="false" tensileDragEnabled="true" snapToGrid="true" scrollableY="false" layout="BoxLayout" boxLayoutAxis="Y" >
+    <component type="Container" name="BoxArticle" cloudDestinationProperty="BoxArticle" uiid="BgBoxArticle" scrollVisible="false" tensileDragEnabled="true" tactileTouch="true" flatten="false" scrollableY="false" layout="BoxLayout" boxLayoutAxis="Y" >
+      <component type="Container" name="TOPBoX" cloudDestinationProperty="Container" scrollVisible="false" layout="FlowLayout" flowLayoutFillRows="true" flowLayoutAlign="1" flowLayoutValign="0" >
+        <component type="Container" name="ImageContainer" cloudDestinationProperty="ImageContainer" >
+          <component type="Label" name="imgUser" cloudDestinationProperty="Label" text="" icon="logodocpdf.png" >
+          </component>
+        </component>
+        <component type="Container" name="DataUser" cloudDestinationProperty="DataUser" layout="BoxLayout" boxLayoutAxis="Y" >
+          <component type="Label" name="UserData" cloudDestinationProperty="Label" uiid="LabelUserName" text="Hammami Mongi" >
+          </component>
+          <component type="Label" name="typeArticle" cloudDestinationProperty="Label1" uiid="LabelCategorieType" text="Medecine dentaire" >
+          </component>
+        </component>
+        <component type="Container" name="Action" cloudDestinationProperty="Action" layout="FlowLayout" flowLayoutFillRows="true" flowLayoutAlign="1" flowLayoutValign="0" >
+          <component type="Button" name="ModArticle" cloudDestinationProperty="Button" uiid="BtnPostAction" focusable="false" enabled="true" text="" icon="article_white_24dp.png" >
+          </component>
+          <component type="Button" name="SuppArticle" cloudDestinationProperty="Button1" uiid="BtnPostAction" text="" icon="article_white_24dp.png" >
+          </component>
+        </component>
+      </component>
+      <component type="Container" name="DATA" cloudDestinationProperty="Container1" layout="BoxLayout" boxLayoutAxis="Y" >
+        <component type="TextArea" name="TitreArticleData" cloudBoundProperty="text" cloudDestinationProperty="TitreArticleData" uiid="LabelTitreArticle" text="TextArea" >
+        </component>
+        <component type="Label" name="ImageArticle" cloudDestinationProperty="Label1" text="" icon="Dialog.borderBottom_1.png" >
+        </component>
+        <component type="SpanLabel" name="TextArticle" cloudDestinationProperty="TextArticle" uiid="LabelTextArticle" >
+          <custom name="text" type="java.lang.String" value="mmmmmmmm" />
+        </component>
+      </component>
+      <component type="Container" name="LikeDislike" cloudDestinationProperty="LikeDislike" layout="BoxLayout" boxLayoutAxis="X" >
+        <component type="Container" name="Like" cloudDestinationProperty="Like" layout="BoxLayout" boxLayoutAxis="X" >
+          <component type="Button" name="Button2" cloudDestinationProperty="Button2" uiid="BtnPostAction" text="" icon="article_white_24dp.png" >
+          </component>
+          <component type="Label" name="Label2" cloudDestinationProperty="Label2" uiid="LabelCategorieType" text="Add Like" >
+          </component>
+        </component>
+        <component type="Container" name="Dislike" cloudDestinationProperty="Dislike" layout="BoxLayout" boxLayoutAxis="X" >
+          <component type="Button" name="Button1" cloudDestinationProperty="Button1" uiid="BtnPostAction" text="" icon="article_white_24dp.png" >
+          </component>
+          <component type="Label" name="Label" cloudDestinationProperty="Label" uiid="LabelCategorieType" text="Add disLike" >
+          </component>
+        </component>
+      </component>
+    </component>
+  </component>
+</component>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="ModArticle" cloudDestinationProperty="ModArticle" uiid="formBg" scrollableY="true" layout="BoxLayout" boxLayoutAxis="Y" nextForm="MesArticles" title="Modifier Article" >
+  <component type="Container" name="DATA" cloudDestinationProperty="Container1" uiid="BgBoxArticle" scrollableY="false" layout="BoxLayout" boxLayoutAxis="Y" >
+    <component type="Container" name="Box" cloudDestinationProperty="Container" scrollVisible="true" scrollableY="false" layout="BoxLayout" boxLayoutAxis="Y" >
+      <component type="TextArea" name="titre" cloudBoundProperty="text" cloudDestinationProperty="titre" uiid="LabelTitreArticle" text="Titre Article" >
+      </component>
+      <component type="Button" name="BtnImage" cloudDestinationProperty="Button" uiid="BtnPostAction" focusable="false" scrollVisible="false" text="" icon="article_white_24dp.png" verticalAlignment="0" >
+      </component>
+      <component type="Label" name="image" cloudDestinationProperty="Label1" text="" icon="cover-lc.png" >
+      </component>
+      <component type="TextArea" name="text" cloudBoundProperty="text" cloudDestinationProperty="text" uiid="LabelTextArticle" text="TextArea" >
+      </component>
+      <component type="Button" name="Modifier" cloudDestinationProperty="Button1" text="Modifier" >
+      </component>
+    </component>
+  </component>
+</component>

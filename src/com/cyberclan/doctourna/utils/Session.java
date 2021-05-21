@@ -5,6 +5,8 @@
  */
 package com.cyberclan.doctourna.utils;
 
+import Services.UserSession;
+
 /**
  *
  * @author mouhe

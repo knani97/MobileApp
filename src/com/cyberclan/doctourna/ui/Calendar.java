@@ -33,7 +33,7 @@ import java.util.Map;
  */
 public class Calendar {
     
-    public Form parent = new Form();
+    public Form parent = new Form("Calendrier");
     public com.cyberclan.doctourna.ui.Calendar tachesList;
     
     private Form form = new Form();
@@ -42,13 +42,13 @@ public class Calendar {
     private CalendrierService cs = new CalendrierService();
 
     private GenericListCellRenderer cellContainer;
-    private ArrayList<Tache> taches = ts.getTachesByCal(cs.getCalendrierByUid(Session.getId()).getId());
 
     private com.codename1.ui.List list;
     private Container container = new Container(new BorderLayout());
     private java.util.ArrayList<Integer> deleted = new java.util.ArrayList<Integer>();
 
-    public Button addButton;
+    public Button addButton = new Button();
+    public ArrayList<Tache> taches = ts.getTachesByCal(cs.getCalendrierByUid(Session.getId()).getId());
 
     public Form getForm() {
         return form;
@@ -135,14 +135,13 @@ public class Calendar {
                 EditTacheForm form = new EditTacheForm(tache);
                 form.mainForm = parent;
                 form.tachesList = tachesList;
-                form.currentDate = new Date();
                 form.show();
             }
         });
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Dialog.show("Suppression Tâche", "Voulez-vous vraiment supprimer la tâche?", "Oui", "Non");
+                Dialog.show("Suppression Tâche", "Voulez-vous vraiment supprimer la tâche ?", "Oui", "Non");
                 Tache tache = ts.getTache(Integer.parseInt(id.getText()));
                 ts.deleteTache(tache);
                 deleted.add(Integer.parseInt(id.getText()));
